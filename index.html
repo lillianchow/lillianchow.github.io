@@ -1,515 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta name="description" content="Lillian Chow is a product manager who builds technical software, explores the world, and gives back. See her experience and projects.">
+<link rel="canonical" href="https://lillianchow.me/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lillian Chow | Product Manager">
+<meta property="og:description" content="Build. Explore. Give back. Experience, projects, and a little circus.">
+<meta property="og:url" content="https://lillianchow.me/">
+<meta property="og:image" content="https://lillianchow.me/LillianCandid.jpg">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Lillian Chow","jobTitle":"Product Manager","url":"https://lillianchow.me","sameAs":["https://www.linkedin.com/in/lillian-chow/","https://github.com/lillianchow"]}
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lillian Chow · Product Manager</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#27348B">
+<meta name="description" content="Lillian Chow is a product manager who builds and ships technical software products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1538; --paper:#FAF8FC; --cobalt:#27348B; --coral:#D6336C; --sun:#FFC857;
+  --on-cobalt:#fff; --on-coral:#fff; --on-sun:#0F1538;
+  --accent:var(--cobalt); --accent-ink:var(--on-cobalt);
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0}
 
-  <head>
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:4rem}
+nav b{font:800 1.15rem var(--display)}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+/* hero: the one loud moment */
+.hero{background:var(--accent);color:var(--accent-ink);transition:background .5s,color .5s;padding:4rem 0 5rem}
+.hero .wrap{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.75rem,8vw,6rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 span{display:block}
+.roles{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.75rem 0 1rem}
+.roles button{font:500 1rem var(--body);padding:.6rem 1.2rem;border-radius:99px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:transform .15s}
+.roles button:hover{transform:translateY(-2px)}
+.roles button[aria-pressed=true]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+#rolePanel{min-height:11rem;max-width:34rem}
+#roleHead{font-size:1.5rem;margin:0 0 .4rem}
+#roleText{margin:0 0 .6rem;font-size:1.15rem}
+.more{color:inherit;font-weight:500;text-underline-offset:4px}
+.title{margin:1rem 0 0;font-size:1.05rem}
+.hero h1 span{transition:opacity .3s}
+.hero h1.focus span{opacity:.4}
+.hero h1.focus span.on{opacity:1}
+.portrait{position:relative;justify-self:center;width:min(100%,19rem)}
+.portrait{perspective:900px}
+.portrait .flip{position:relative;aspect-ratio:1;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.4,.5,1)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid var(--paper);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.portrait .back{transform:rotateY(180deg)}
+@media(hover:hover){.portrait:hover .flip{transform:rotateY(180deg)}}
+.portrait:focus-visible .flip,.portrait.flipped .flip{transform:rotateY(180deg)}
 
-    <title>Lillian Chow - Portfolio</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+section{padding:5rem 0}
+h2{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem}
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">b
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem;max-width:36rem}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-content:start}
+.fact{background:#fff;color:var(--ink);font:inherit;text-align:left;cursor:pointer;border:2px solid var(--ink);border-radius:1rem;padding:1.1rem;transition:transform .2s}
+.fact:hover{transform:rotate(-1.5deg) translateY(-3px)}
+.fact small{display:block;margin-top:.5rem;font-size:.85rem;text-decoration:underline}
+.fact{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
+.fact small{margin-top:auto;padding-top:.5rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(12rem,100%),1fr));gap:.6rem;margin-top:1rem}
+.gallery img{border-radius:.75rem}
+.fact strong{display:block;font:800 2.4rem/1 var(--display)}
+.fact:nth-child(2){background:var(--sun);color:var(--on-sun)}
+.fact:nth-child(3){background:var(--coral);color:var(--on-coral)}
+.places{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;padding:0;list-style:none}
+.places li{padding:.3rem .9rem;border-radius:99px;background:var(--ink);color:var(--paper);font-size:.95rem}
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!--
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    --> 
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+/* work */
+.work{background:var(--ink);color:var(--paper)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));gap:1.5rem}
+.card{all:unset;box-sizing:border-box;cursor:pointer;display:block;border-radius:1.25rem;overflow:hidden;background:var(--paper);color:var(--ink);transition:transform .2s}
+.card:hover{transform:translateY(-6px) rotate(-.6deg)}
+.card:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.card img{display:block;width:100%;height:13rem;object-fit:cover}
+.card div{padding:1.25rem 1.4rem 1.5rem}
+.card h3{font-size:1.6rem;margin-bottom:.4rem}
+.card small{font-size:.95rem}
+.tag{display:inline-block;margin-top:.8rem;padding:.15rem .7rem;border-radius:99px;background:var(--sun);color:var(--on-sun);font-size:.85rem;font-weight:500}
 
-    <!-- My own fonts -->
-    <link href="https://fonts.googleapis.com/css?family=BenchNine:700|Pacifico|Playfair+Display+SC:700|Poiret+One|Questrial" rel="stylesheet" type="text/css">
+dialog{width:min(44rem,92vw);max-height:88vh;max-height:88dvh;border:0;border-radius:1.25rem;padding:0;background:var(--paper);color:var(--ink)}
+dialog::backdrop{background:rgba(20,23,43,.7)}
+dialog img{width:100%;max-height:18rem;object-fit:cover;display:block}
+dialog .body{padding:1.5rem 2rem 2rem}
+dialog h3{font-size:2rem;margin-bottom:.75rem}
+dialog p{margin:0 0 1rem}
+dialog form{position:sticky;top:.6rem;float:right;margin:.6rem;z-index:2}
+dialog form button{font:500 1rem var(--body);padding:.4rem 1rem;border-radius:99px;border:0;background:var(--paper);cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.3)}
 
-    <!-- Custom styles for this template -->
-    <link href="css/agency.css" rel="stylesheet">
+.lede{margin:-.75rem 0 2rem;max-width:36rem;opacity:.85}
+.navbtn{padding:.35rem 1rem;border-radius:99px;background:var(--ink);color:var(--paper)}
+.btn{display:inline-block;margin-top:1.25rem;padding:.8rem 1.5rem;border-radius:99px;background:var(--paper);color:var(--ink);font-weight:500;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.timeline{list-style:none;margin:0;padding:0 0 0 1.5rem;border-left:3px solid var(--ink);max-width:46rem}
+.timeline li{position:relative;margin:0 0 1rem}
+.timeline li::before{content:"";position:absolute;left:-2.15rem;top:.85rem;width:1rem;height:1rem;border-radius:50%;background:var(--coral);border:3px solid var(--ink)}
+.timeline li.now::before{background:var(--sun)}
+.timeline details{background:#fff;border:2px solid var(--ink);border-radius:1rem;padding:.9rem 1.2rem}
+.timeline summary{cursor:pointer;font:800 1.25rem var(--display);list-style:none}
+.timeline summary small{display:block;font:400 .95rem var(--body)}
+.timeline details p{margin:.8rem 0 0}
+.timeline details ul li { list-style: disc; list-style-image: none }
+.timeline details ul li::before { content: none }
+.card.now .tag{background:var(--coral);color:var(--on-coral)}
+.early .card,.giving .card{border:2px solid var(--ink)}
+.giving .card{cursor:default}
+.giving .card:hover{transform:none}
+.giving .card div{padding:1.4rem}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr));gap:1.25rem}
+.principle{padding:1.4rem;border-radius:1.25rem;background:var(--sun);color:var(--on-sun)}
+.principle:nth-child(2){background:var(--coral);color:var(--on-coral)}
+.principle:nth-child(3){background:var(--cobalt);color:var(--on-cobalt)}
+.principle h3{font-size:1.5rem;margin-bottom:.5rem}
+.principle p{margin:0}
+.mh{font:800 1.15rem var(--display);margin:1.2rem 0 .2rem}
+dialog img[src=""],dialog img:not([src]){display:none}
 
-  </head>
-  <body id="page-top">
+/* contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(2.5rem,8vw,6rem)}
+.links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.links a{padding:.9rem 1.6rem;border-radius:99px;border:2px solid var(--ink);font-weight:500;text-decoration:none;transition:background .2s,color .2s}
+.links a:first-child{background:var(--ink);color:var(--paper)}
+.links a:hover{background:var(--coral);color:var(--on-coral);border-color:var(--ink)}
+footer{padding:2rem 0;text-align:center;font-size:.9rem}
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Lillian Chow</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#resume">Résumé</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-            </li>
-<!--            <li class="nav-item">
-            </li>         -->
-          </ul>
-        </div>
+@media(max-width:46rem){
+  html{scroll-padding-top:6.5rem}
+  nav .wrap{flex-wrap:wrap;height:auto;padding-top:.6rem;padding-bottom:.3rem;row-gap:.2rem}
+  nav ul{width:100%;gap:1.1rem;overflow-x:auto;white-space:nowrap;padding:.2rem 0 .4rem;scrollbar-width:none}
+  nav ul::-webkit-scrollbar{display:none}
+  nav a{display:inline-block;padding:.35rem 0}
+  .navbtn{padding:.35rem 1rem}
+  .hero{padding:2rem 0 3rem}
+  .hero .wrap,.about{grid-template-columns:1fr;gap:2rem}
+  .portrait{order:-1;width:10rem}
+  .roles button,.btn{padding:.7rem 1.2rem}
+  section{padding:3.5rem 0}
+  .timeline{padding-left:1.25rem}
+  .timeline summary{font-size:1.1rem}
+  .card img{height:11rem}
+  dialog{width:94vw}
+  dialog .body{padding:1.25rem 1.25rem 1.75rem}
+  dialog h3{font-size:1.6rem}
+  .links a{flex:1 1 100%;text-align:center}
+}
+@media(hover:none){.fact:hover,.card:hover,.portrait:hover img,.roles button:hover,.btn:hover,.links a:hover{transform:none}}
+body:has(dialog[open]){overflow:hidden}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <b>Lillian Chow</b>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#how">How I work</a></li>
+      <li><a href="#giving">Giving back</a></li>
+      <li><a class="navbtn" href="Chow_Lillian_Resume(Aug26).pdf" download>Resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1><span data-v="build">Build.</span><span data-v="explore">Explore.</span><span data-v="give">Give back.</span></h1>
+      <p class="title">Product Manager &middot; The Walt Disney Company</p>
+      <div class="roles" role="group" aria-label="Pick a side of me">
+        <button aria-pressed="true" data-role="pm">Product Manager</button>
+        <button aria-pressed="false" data-role="coder">Coder</button>
+        <button aria-pressed="false" data-role="traveler">Traveler</button>
+        <button aria-pressed="false" data-role="mentor">Mentor</button>
       </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="masthead" style="background-image: url('icelandSmall.jpg'); width:100%;height:100%;background-position: center;background-size: cover">
-      <div class="container">
-<!--        <img style="margin-top: 200px" style="margin-bottom:0px" class="img-fluid" 
-src="roundPortrait.png" height="400" width="400" alt=""> -->
-
-        <div class="intro-text">
-       
-         <div class="col-sm-4">
-            <div class="team-member">
-            <center>
-              <img class="mx-auto rounded-circle" src="linkedinRound.png" alt="">
-              </center>
-
-        <!--  <div class="intro-lead-in">Lillian Chow</div>  -->
-          <div class="intro-heading"> Lillian Chow </div>
-          <hr class="star-light">
-          <a class="skills">Product Manager | Traveler | Coder</a>
-        </div>
-      </div>
-    </header>
-
- 
- <!--             <h4>Lillian Chow</h4>
-              <p class="text-muted">hi</p>        -->
-                </li>
-              </ul>
-            </div>
-          </div>
-
-
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">About</h2>
-            <!--<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
-          </div>
-        </div>
-        <div class="row text-center">
-          <!--<div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>-->
-            </span>
-            <h4 class="service-heading">Welcome!</h4>
-            <p class="text-muted">Hi there! I'm Lillian—a dedicated Product Manager with over three years of experience building and shipping technical software products. I began my PM journey in Fall 2020 with Branch Financial, where I joined a team of ~30 people and helped scale products to meet the needs of a 500+ person organization. This fast-paced growth allowed me to gain invaluable experience right out of college after earning my degree in Information Systems from The Ohio State University in 2021. From managing interns and working cross-functionally to crafting creative technical solutions and navigating complex legal requirements, the startup adventure has been both challenging and rewarding. I remain inspired by our customers, who continue to teach me something new every day—a part of product management that I truly love. 
-            </br>
-            </br>
-            My past roles include experiences with Bank of America, Google, The Kroger Co., and Procter & Gamble, where I honed skills in data analysis, software development, and customer engagement. I specialize in consumer-facing websites, B2B API integrations, technical engineering work, data-driven decision making, and backend infrastructure—all with a focus on optimizing workflows, driving customer-centric innovations, and delivering high-impact results.
-            </br>
-            </br>
-            Beyond my professional pursuits, I’m deeply committed to making a positive impact. I volunteer with Habitat for Humanity, mentor young women in tech through NPower and Rewriting the Code, and work with kids at One Church. A lifelong explorer, I’ve traveled to all seven continents and spend my free time hiking, baking (including my brothers' wedding cake!), knitting, and enjoying the outdoors.
-            </br>
-            </br>
-            Let’s connect to explore new opportunities for collaboration, innovation, and meaningful change!
-            </br>
-            </br>
-          </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <!-- About -->
-    <section class="bg-light" id="resume">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Résumé</h2>
-            <p>
-            <center>
-<!--              <div class='embed-responsive' style='padding-bottom:132%; margin-top:50px'>
--->
-                <object data="Chow_LillianResume.pdf" type='application/pdf' height = "950" width = "685">
-            </p></center></object>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio Grid -->
-    <section id="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Check out some of the bigger projects I've created!</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="girlsWhoCode.png" alt="" width="400px" height="400px">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Summer Immersion Program</h4>
-              <p class="text-muted">7 weeks</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="twitcher.png" alt="" width="400px" height="350px">
-            </a>
-            <div class="portfolio-caption">
-              <h4>GWC Final Project</h4>
-              <p class="text-muted">Twitcher</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="senseSackOuter.png" alt="" width="400" height="600">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Independent Project</h4>
-              <p class="text-muted">Infant Monitor</p>
-            </div>
-          </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>        
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-
-<!--      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Contact: lillianchow8@gmail.com</span>
-          </div>
--->
-          <center>
-          <div class="col-md-4 ">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="https://github.com/lillianchow/lillianchow.github.io">
-                  <i class="fa fa-github"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/in/lillian-chow/">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="mailto:lillianchow8@gmail.com">
-                  <i class="fa fa-envelope"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          </center>
-
-
-<!--          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>          -->
-        </div>
-      </div>
-    </footer>  
-
-    <!-- Portfolio Modals -->
-
-    <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  
-                  <h2>Girls Who Code Summer Immersion Program</h2>
-                  <p class="item-intro text-muted">The Girls Who Code Summer Immersion program is a 7 week coding intensive hosted at companies around the country. I was one of twenty students selected to participate in the program at <b>AT&T regional headquarters</b> in Atlanta, GA the summer before my Senior year in high school. Over the 7 weeks, I programmed in <b>Scratch, Arduino, Python, HTML, CSS, JavaScript, and Flask</b>.</p>
-                  
-                  <img class="img-fluid d-block mx-auto" src="whiskerRobot.jpg" alt="">
-                  <p> One of the first projects we worked on in <b>Arduino</b> was to build a robot utilizing an Arduino Uno and whiskers. The program itself would sense when a whister was touched, and would cause the robot to move in the opposite direction.  </p>
-                  <img class="img-fluid d-block mx-auto" src="dancingRobot.jpg" alt="">
-                  <p> This program utilized the same <b>Arduino</b> Uno and robot structure. However, the movements of the robot was choreographed to a song of choice.</p>
-                  <img class="img-fluid d-block mx-auto" src="obamicon.jpg" alt="">
-                  <p> This program, written in <b>Python</b>, takes any image and changes the RGB ratio in order to make it look like the iconic "Obamicon".</p>
-                  <img class="img-fluid d-block mx-auto" src="bouncingFlashBall.png" alt="">
-                  <p> This bouncing ball was programmed in <b>Python</b> utilizing Pygame in particular. The ball will bounce all around the screen's edges. The program can drag the ball, go in a certain pattern, or go in a random pattern. </p>
-                  <img class="img-fluid d-block mx-auto" src="cityScroller.jpg" alt="">
-                  <p> The city scroller contains a city background that will move along as if the user is in a moving vehicle. This program was written in <b>Python</b> and utilized Pygame.</p>
-                  <img class="img-fluid d-block mx-auto" src="runnerGame.jpg" alt="">
-                  <p> The runner game uses the city scroller as a background and has objects on the track which the avatar has to avoid by using the space bar on the keyboard.</p>
-                  <img class="img-fluid d-block mx-auto" src="snow.jpg" alt="">
-                  <p> The snow animation will allow for a random pattern of random sizes of 'snow' to fall down the screen at a random rate.</p>
-                  <img class="img-fluid d-block mx-auto" src="paddleball.jpg" alt="">
-                  <p> This program - written in <b>scratch</b> - is similar to the game Brick Breaker.</p>
-                  <img class="img-fluid d-block mx-auto" src="pig.jpg" alt="">
-                  <p> This game is a virtual game of the basketball game PIG utilizing a dice as a random number generator, and written in Scratch. </p>
-                  <img class="img-fluid d-block mx-auto" src="jukebox.jpg" alt="">
-                  <p> Each of the songs in this 'jukebox' were created in Scratch, as well as the acutal jukebox. The jukebox has the ability to play pause, clear the list, add to the end of the list, or add to the beginning.</p>
-
-                  <ul class="list-inline">
-                    <li>Date: June 2016 - July 2016</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="rolePanel" aria-live="polite"><h2 id="roleHead"></h2><p id="roleText"></p><a id="roleLink" class="more" href="#"></a></div>
+      <a class="btn" href="Chow_Lillian_Resume(Aug26).pdf" download>Download my resume</a>
+    </div>
+        <div class="portrait" tabindex="0">
+      <div class="flip">
+        <img class="front" src="linkedinRound.png" alt="Portrait of Lillian Chow">
+        <img class="back" src="LillianCandid.jpg" alt="Lillian smiling and kicking up a leg on a cobblestone street">
       </div>
     </div>
+  </div>
+</header>
 
-    <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2>Girls Who Code Final Project</h2>
-                  <p class="item-intro text-muted">After the first 5 weeks of the Summer Immersion Program, we had the opportunity to create a final project of our choice.</p>
-                  <img class="img-fluid d-block mx-auto" src="twitcher.png" alt="">
-                  <p>My final project was a program titled Twitcher. The program utilizes <b>Python</b> to pull from the Twiter API and parse through data from users. After the user enters a twitter handle into the box, the program uses <b>Regular Expressions</b> to parse through the Twitter data pulled from the API and find certain keywords specified in each filter. Twitcher was built into a web framework utilizing the microframework <b>Flask</b>. The website utilizes <b>HTML, CSS, and JavaScript</b>.</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Explore</li>
-                    <li>Category: Graphic Design</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>Hi, I'm Lillian.</h2>
+      <p>I've spent the last seven years building and shipping technical software products. I started my product journey as a PM at Branch Financial in fall 2020, joining a team of about 30 and helping scale products for a 500+ person organization. I am now part of the magic at The Walt Disney Company, bringing efficency and technical innovation to internal, cast facing products, as well as external, guest facing products for Disney Experiences.</p>
+      <p>I focus on complex automated products, consumer-facing websites, B2B API integrations, backend infrastructure, internal automations, building skills and routines backed by and integrated with artificial intelligence tools, and decisions backed by data. Before Disney, I worked at Branch, Bank of America, Google, Kroger, Procter &amp; Gamble, and various offices at The Ohio State University.</p>
+      <p>Outside of work I volunteer with Disney VoluntEARs and Ride Engineering Competition, along with having and continuously gaining new hobbies like baking, knitting, sewing, traveling, cycling, and hiking.</p>
     </div>
-
-    <!-- Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2>senseSack</h2>
-                  <p class="item-intro text-muted">A Wearable SleepSack Containing Wireless Sensors for Monitoring Infant Body Vitals</p>
-                  <img class="img-fluid d-block mx-auto" src="senseSackInner.png" alt="">
-                  <p>The goal of this project was to design a device to <b>monitor infants</b> for the early symptoms of infant death, i.e. body temperature, humidity and skin color changes. The use of wearable technology is advantageous due to light-weight properties, lack of heat build-up, and durability. The device would be made with wearable circuits, making them less prone to irritation, excessive heat, etc. </p>
-                  
-                  <p>In 2015, there were 3700 <b>Sudden Unexpected Infant Deaths</b> (SUID) in the United States among infants less than 1 year old. The three most common SUID include SIDS, unknown cause, and accidental suffocation or strangulation in bed. Though there have been inconclusive studies as to why this happens, there have been successful research studies that have proven symptoms such as changes in body temperature, fluctuations in blood pressure, and shifts in heart rate occur before the child dies. Research has determined some of the risk factors that increase a child’s probability of SUID or SIDS since a majority of the infant deaths are attributed to <b>unsafe sleep practices</b> and environments. For example, bed sharing, loose bedding, wedging and entrapment, and an environment that promote infant over heating are considered unsafe sleep practices. The “Back to Sleep” campaign, now called the <b>“Safe to Sleep” campaign</b>, was introduced in the 1994, to reduce possibility of strangulation or suffocation. There has been approximately a 50% reduction in deaths since the introduction of the campaign, but SIDS remain the leading cause of post-neonatal mortality.</p>
-                  
-                  <p>In the past, teams have developed wearable technologies for monitoring children. However, current technologies are not targeted at sensing symptoms of SIDS or SUID, but simply monitoring the <b>heart rate</b> of a child. The senseSack was designed completely from individual components. This includes both the hardware and software portions of the project as well as the electronic and non-electronic components.</p>
-                  
-                  <p>The design of the senseSack is simple and effective. Each <b>wearable sensor</b>, designed for human contact, collects data. They then communicate with the mobile device due to the Bluetooth chip in the circuit. While designing the senseSack, temperature tests were taken to measure the <b>accuracy</b> of the sack with heat retention. Not only was the senseSack able to measure the decrease in temperature, but also the temperature inside the sack. Thus, it was concluded the senseSack would be able to accurately measure a drop in temperature.</p> 
-                  
-                  <p>The senseSack is a <b>cost effective</b> and seemingly simple idea with the potential to reduce the probability of a child having SIDS or SUID. One of the device's purposes is to use the senseSack as a <b>predictive analytics model</b> in hospitals and/or homes. This sleepsack will enable early warning of health hazards giving guardians greater peace of mind and users greater comfort in knowing the reliability of the product.</p>
-                  
-                  <p>The current design of the product leaves room for potential improvements. One of those and one of the easiest, is adding more sensors to the product. The <b>multiplexer</b> is in place to continue expanding upon the product. An app for the product would be fully developed to ensure ease of use for individuals.</p>
-
-                  <p>The <b>hardware</b> for the project was put together by myself utilizing components purchased from adafruit.com or sparkfun.com. The software was programmed by myself in <b>Arduino</b>.</p>
-
-                  <ul class="list-inline">
-                    <li>Date: November 2016 - January 2017</li>
-                    <li><b>Patent Pending</b></li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      <div class="facts" id="facts"></div>
+      <ul class="places" aria-label="Right now">
+        <li>Current Hobby: Running! (slowly) </li><li>Currently Baking: Every Type of Focaccia </li><li>Currently Crafting: Upcycling Old Clothes for Purses! </li><li>Currently Learning: Irish! Fáilte romhat chuig mo shaol :)</li>
+      </ul>
     </div>
+  </div>
+</section>
 
+<section id="experience">
+  <div class="wrap">
+    <h2>Where I've worked</h2>
+    <p class="lede">Click a role to see what I did there.</p>
+    <ol class="timeline" id="timeline"></ol>
+  </div>
+</section>
 
-<!--    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">                    -->
-                  
-                  <!-- Project Details Go Here -->
-<!--                 <h2>Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Lines</li>
-                    <li>Category: Branding</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>                  -->
+<section class="work" id="work">
+  <div class="wrap">
+    <h2>What I've shipped (some of it)</h2>
+    <p class="lede">Open a card for the story behind it.</p>
+    <div class="cards" id="projectCards"></div>
+  </div>
+</section>
 
-    
-    <!-- Modal 5 -->
-<!--    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">        -->
-                  
-                  <!-- Project Details Go Here -->
- <!--                 <h2>Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Southwest</li>
-                    <li>Category: Website Design</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>              -->
+<section id="how">
+  <div class="wrap">
+    <h2>How I work</h2>
+    <div class="principles">
+      <div class="principle"><h3>Find the problems</h3><p>Good solutions always start with a real problem. Before I jump into solving anything, I make sure I understand the actual pain points and what's driving them.</p></div>
+      <div class="principle"><h3>Bring the right people</h3><p>The best products come from bringing together experts in different fields and actually listening to them. I'm here to connect the dots, not to know everything. My job is to lean on specialists and align their work toward shared buisness goals.</p></div>
+      <div class="principle"><h3>Listen to customers</h3><p>Anecdotal feedback and data from real users are my favorite way to improve a product. Watching how people actually use things beats any assumption I could make.</p></div>
+      <div class="principle"><h3>Lead with curiosity</h3><p>Curiosity and kindness are my recipe for success. Wanting to understand how someone thinks is always more productive than pushing hard.</p></div>
+    </div>
+  </div>
+</section>
 
-   
-    <!-- Modal 6 -->
- <!--   <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">          -->
+<section class="early" id="early">
+  <div class="wrap">
+    <h2>Where I started</h2>
+    <p class="lede">Circuts, Robots, Girls Who Code, and a smart sleep sack. This is where it all began.</p>
+    <div class="cards" id="earlyCards"></div>
+  </div>
+</section>
 
-                  <!-- Project Details Go Here -->
- <!--                 <h2>Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Window</li>
-                    <li>Category: Photography</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>                    -->
+<section class="giving" id="giving">
+  <div class="wrap">
+    <h2>Giving back</h2>
+    <div class="cards" id="givingCards"></div>
+  </div>
+</section>
 
+<dialog id="modal">
+  <form method="dialog"><button>Close</button></form>
+  <img id="mImg" alt="">
+  <div class="body" id="mBody"></div>
+</dialog>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>I'm always up for talking about products, collaboration, or hiking trails.</p>
+    <div class="links">
+      <a href="mailto:lillianchow8@gmail.com">Email me</a>
+      <a href="https://www.linkedin.com/in/lillian-chow/">LinkedIn</a>
+      <a href="https://github.com/lillianchow">GitHub</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<footer>&copy; <span id="yr"></span> Lillian Chow</footer>
 
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+<script>
+/* ===== EDIT THESE: the hero chips. verb = which headline word lights up (build, explore, give) ===== */
+const roles = {
+  pm:{head:"Product Manager",verb:"build",bg:"var(--cobalt)",fg:"var(--on-cobalt)",link:["See what I've shipped","#work"],
+      text:"I turn customer problems into shipped software, from websites and API integrations to the backend that holds them up. Nothing beats seeing something I helped build solve a real problem for real people."},
+  traveler:{head:"Traveler",verb:"explore",bg:"var(--coral)",fg:"var(--on-coral)",link:null,
+      text:"Seven continents and 35+ countries so far, and I'm semi-mastering the art of one-bag travel. I probably spend more time living out of a suitcase than a closet. Let's swap favorite places!"},
+  coder:{head:"Coder",verb:"build",bg:"var(--sun)",fg:"var(--on-sun)",link:["See where I started","#early"],
+      text:"I started with circuits in middle school, then Arduino robots and Flask apps in high school, and I still love building with new tools. Now I build tools that reduce friction and integrate AI, which keeps opening doors to new ideas and adventures in tech."},
+  mentor:{head:"Mentor",verb:"give",bg:"var(--ink)",fg:"var(--paper)",link:["See how I give back","#giving"],
+      text:"I mentor young women in tech through NPower and Rewriting the Code, and I volunteer through Disney VoluntEARs, Habitat for Humanity, and One Church. I wouldn't be where I am without the people who helped me get here, so giving back is a cornerstone of my life."}
+};
+const h1 = document.querySelector('.hero h1'), btns = document.querySelectorAll('.roles button');
+const roleLink = document.getElementById('roleLink');
+function setRole(k){
+  const r = roles[k], root = document.documentElement.style;
+  root.setProperty('--accent', r.bg); root.setProperty('--accent-ink', r.fg);
+  document.getElementById('roleHead').textContent = r.head;
+  document.getElementById('roleText').textContent = r.text;
+  if (r.link){ roleLink.textContent = r.link[0]; roleLink.href = r.link[1]; roleLink.hidden = false; } else { roleLink.hidden = true; }
+  h1.classList.add('focus');
+  h1.querySelectorAll('span').forEach(sp => sp.classList.toggle('on', sp.dataset.v === r.verb));
+  btns.forEach(x => x.setAttribute('aria-pressed', x.dataset.role === k));
+}
+btns.forEach(b => b.addEventListener('click', () => setRole(b.dataset.role)));
+setRole('pm');
 
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.js"></script>
+/* ===== EDIT THESE: your content lives here ===== */
+const jobs = [
+  {title:"Product Manager", company:"The Walt Disney Company", dates:"June 2025 to present", now:true,
+   text:"<ul><li>Lead department wide AI Tiger Team, operationalizing AI adoption across Disney</li><li>Build department efficiency tools using Claude, reducing manual tasks</li><li>Own budgeting tool for Disney Experiences tracking advertising spend and fees across all parks</li><li>Developed software development guidelines for department product management team scalability and code consistency</li><li>Refactored codebase to meet security compliance standards</li><li>Build and maintain API connections for Workfront, Jira, and Microsoft automations</li></ul>"},
+  
+  {title:"Product Manager III", company:"Branch Insurance", dates:"January 2023 to March 2024",
+   text:"<ul><li>Owned all product lines, making global product decisions impacting 500+ person organization</li><li>Built product roadmaps identifying growth and efficiency opportunities across platforms</li><li>Created processes for ticket management, triage, team structure, and cross-functional workflows</li><li>Coordinated 2 engineering teams of 6 across cross-product and departmental initiatives</li><li>Facilitated A/B testing and product feedback loops</li></ul>"},
+  
+  {title:"Product Manager II", company:"Branch Insurance", dates:"January 2021 to January 2023",
+   text:"<ul><li>Owned product launches from ideation through delivery across all platforms</li><li>Managed external partnerships and API integrations for core business</li><li>Built data taxonomy system, anomaly alerts, and refactored data architecture for scaling</li><li>Mentored PM interns on project management and prioritization</li></ul>"},
+  
+  {title:"Product Manager I", company:"Branch Insurance", dates:"August 2020 to January 2021",
+   text:"<ul><li>Owned online platform processes and launches pre-purchase</li><li>Analyzed product data and ran A/B tests via Amplitude</li><li>Collaborated with data team on tracking handovers pre and post-launch</li><li>Built feedback diagrams from user testing and customer interviews</li></ul>"},
+  
+  {title:"Global Technology Analyst Intern", company:"Bank of America", dates:"May 2020 to August 2020",
+   text:"<ul><li>Led team of 8 building NLP language corpus from financial documents using Python and NLP tools</li><li>Performed sentiment analysis on financial text data vs. stock performance using R</li><li>Designed internal Slack add-ons to improve app efficiency</li></ul>"},
+  
+  {title:"IT Engineering Intern", company:"Google", dates:"May 2019 to August 2019",
+   text:"<ul><li>Supported executives' IT needs on XTechs team</li><li>Onboarded 2,000+ new employees as part of onboarding team</li><li>Built dashboards and business plans for process efficiency improvements</li><li>Used BigQuery and SQL for data analysis</li></ul>"},
+  
+  {title:"University Ambassador", company:"Ohio State University", dates:"August 2019 to May 2022",
+   text:"<ul><li>Conducted campus tours for prospective students and families</li><li>Supported university-wide events for incoming students</li><li>Trained new Ambassador cohorts</li></ul>"},
+  
+  {title:"Student Desktop Support Specialist", company:"Ohio State University", dates:"January 2019 to August 2020",
+   text:"<ul><li>Managed asset tracking and deployment for university devices</li><li>Imaged and deployed machines across departments with custom software</li><li>Maintained asset databases</li></ul>"},
+  
+  {title:"Vendor Management Intern", company:"The Kroger Co.", dates:"August 2018 to December 2018",
+   text:"<ul><li>Collaborated with vendors to streamline invoicing efficiency</li><li>Designed internal tool for R&D workflow transparency and prioritization</li><li>Built Jira integrations in JavaScript using Ionic and Cordova</li></ul>"},
+  
+  {title:"Student Research Assistant", company:"Ohio State University", dates:"May 2018 to June 2019",
+   text:"<ul><li>Collaborated on ML/NLP research at the intersection of machine learning, NLP, and social media</li><li>Built, trained, and tested AI neural network algorithms</li><li>Published work on AI for social media accessibility</li></ul>"},
+  
+  {title:"Student Technician", company:"Ohio State University", dates:"September 2017 to September 2018",
+   text:"<ul><li>Resolved technical issues for Arts & Sciences faculty and students</li><li>Deployed custom machines across campus based on departmental needs</li><li>Supported makerspace equipment troubleshooting</li><li>Documented systems in university database</li></ul>"},
+  
+  {title:"Employee Care INTERalliance Intern", company:"Procter & Gamble", dates:"June 2017 to August 2017",
+   text:"<ul><li>Migrated 9,000+ knowledge articles from SharePoint to ServiceNow</li><li>Created test cases and managed QA using Panaya</li><li>Introduced Agile methodologies to offshore engineering team</li></ul>"}
+];
 
-  </body>
+/* status: "now" = current work, "case" = case study, "early" = where I started.
+   image is optional (e.g. "myshot.png"). Each details item is [heading, text]. Leave heading "" for a plain paragraph. */
+const projects = [
+  {status:"now", title:"Personality-driven travel hub", blurb:"A travel hub that starts with you, not a destination", tag:"In progress", image:"",
+   details:[
+     ["The problem","Travel hubs today are built for people who already know what kind of trip they want. But how do you know where to start? This new idea takes your interests, travel patterns, and financial priorities into account to suggest your next trip."],
+     ["Who it's for","Anyone and everyone looking to take a break from reality."],
+     ["What I'm working on","We're in development!"],
+     ["What's next","Stay tuned :)"]
+   ]},
 
+  {status:"case", title:"AI routines that replace manual work", blurb:"Routines and skill files that cut repetitive weekly tasks across the department", tag:"Disney, 2026", image:"",
+   details:[
+     ["The problem","Cast members repeat many of the same processes every week. With a little help for shareability, routines and skills can take over that work."],
+     ["Who was involved","I built it, but it couldn't have launched without testers across the department."],
+     ["What I decided","How to package the skill for the whole department: a shareable framework for setup and testing, and a way to run it on different devices with different levels of access."],
+     ["What happened","AI tools that weren't being used before are now operational, and wide adoption dramatically cut the time spent on these tasks each week."],
+     ["What I learned","New ways of testing with different partners, where instructions have gaps, and how to make software as foolproof as possible before rolling it out department-wide."]
+   ]},
+
+  {status:"case", title:"Faster IT responses for executives", blurb:"A dashboard and business plan to speed up IT support for company leadership", tag:"Google, 2019", image:"",
+   details:[
+     ["The problem","Executives are not immune to IT problems, and because their work is so high-profile, their issues need to be resolved as quickly as possible."],
+     ["Who was involved","I pulled historical IT support data for VPs and above from across the company."],
+     ["What I decided","The team needed visibility, transparency, and a plan, so I set out to create all three."],
+     ["What happened","I built a Qlik dashboard on a BigQuery backend and paired it with a business proposal. Together they laid out a plan to dramatically increase efficiency across the board."],
+     ["What I learned","This was one of my first large projects using MySQL and Qlik. I also learned how to write a business proposal and pitch it to executives efficiently and effectively."]
+   ]},
+  
+// early projects
+  {status:"early", title:"Girls Who Code Summer Immersion", blurb:"Robots, games and animations in Arduino, Python and Scratch", tag:"June to July 2016", image:"whiskerRobot.jpg",
+   details:[["","One of twenty students chosen for a 7-week coding intensive at AT&T's regional headquarters in Atlanta, the summer before my senior year of high school. I worked in Scratch, Arduino, Python, HTML, CSS, JavaScript, and Flask."],["","Highlights: a whisker-sensing Arduino robot, a robot choreographed to music, an \"Obamicon\" image filter, a bouncing ball and a city-scroller runner game in Pygame, plus Brick Breaker, PIG and a jukebox in Scratch."]]},
+  {status:"early", title:"Twitcher", blurb:"A Flask app that scans a Twitter handle for keywords", tag:"January 2017", image:"twitcher.png",
+   details:[["","My Girls Who Code final project. Enter a Twitter handle and Twitcher pulls that user's data from the Twitter API, then uses regular expressions to find keywords for each filter."],["","Built with Python and Flask, with a front end in HTML, CSS, and JavaScript."]]},
+  {status:"early", title:"senseSack", blurb:"A wearable sleep sack that monitors infant vitals", tag:"Patent pending", image:"senseSackInner.png",
+   details:[["","A wearable sleep sack with wireless sensors that tracks body temperature, humidity, and skin color changes, early signs linked to Sudden Unexpected Infant Death. Sensors send data to a mobile device over Bluetooth. The idea of the sleep sack is to use it as a predictive analytics model in hospitals or at home in order to really help narrow down and pintpoint some of the potential symptoms of SIDS."],["","I designed the hardware from Adafruit and SparkFun components and wrote the Arduino software myself. Temperature tests showed it could accurately detect a drop in temperature."]]}
+];
+
+const giving = [
+  {name:"Ride Engineering Competition", text:"REC is a non-profit that gives university students hands-on, real-world experience in engineering, safety, and ride design. As sponsorship coordinator, I build partnerships that help the program grow and cut student costs."},
+  {name:"Disney VoluntEARs", text:"From the Boys & Girls Club of America to Second Harvest Food Bank to walking in solidarity for causes I care about, VoluntEARs has become a foundational part of my life in Central Florida."},
+  {name:"Habitat for Humanity", text:"From putting up walls in the snow to building playsets for kids to hearing the birds sing as keys are handed to homeowners, Habitat holds a special place in my heart."},
+  {name:"NPower", text:"As a woman who grew up in tech as a minority, NPower was one of the first places I could truly mentor and take people under my wing, giving back as so many gave to me."},
+  {name:"Rewriting the Code", text:"Rewriting the Code has let me champion and support my fellow women in computing, and it opened the door to a network of mentorship, friendship, and scholarship."},
+  {name:"One Church", text:"Working with kids has always held a special place in my heart. Seeing them light up when they recognize me, and high-fiving them in the halls years later, is a highlight of my life."}
+];
+/* ===== end of editable content ===== */
+
+function el(tag, cls, text){const e=document.createElement(tag); if(cls) e.className=cls; if(text) e.textContent=text; return e;}
+
+jobs.forEach(j=>{
+  const li=el('li', j.now?'now':''), d=el('details'), sm=el('summary', '', j.title+' at '+j.company);
+  sm.appendChild(el('small','',j.dates)); const p=el('p'); p.innerHTML=j.text; d.append(sm, p); li.appendChild(d);
+  document.getElementById('timeline').appendChild(li);
+});
+
+const modal=document.getElementById('modal'), mImg=document.getElementById('mImg'), mBody=document.getElementById('mBody');
+function openProject(p){
+  mBody.replaceChildren(el('h3','',p.title));
+  p.details.forEach(([h,t])=>{ if(h) mBody.appendChild(el('div','mh',h)); mBody.appendChild(el('p','',t)); });
+  if(p.image){mImg.src=p.image;} else {mImg.removeAttribute('src');}
+  modal.showModal();
+}
+projects.forEach(p=>{
+  const c=el('button','card '+p.status), box=el('div');
+  if(p.image){const i=el('img'); i.src=p.image; i.alt=p.title; c.appendChild(i);}
+  const t=el('span','tag',p.tag);
+  box.append(el('h3','',p.title), el('small','',p.blurb), el('br'), t); c.appendChild(box);
+  c.addEventListener('click',()=>openProject(p));
+  document.getElementById(p.status==='early'?'earlyCards':'projectCards').appendChild(c);
+});
+giving.forEach(g=>{
+  const c=el('div','card'), box=el('div'); box.append(el('h3','',g.name), el('p','',g.text)); c.appendChild(box);
+  document.getElementById('givingCards').appendChild(c);
+});
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.close(); });
+/* ===== EDIT THESE: the About tiles. photos = image filenames that open when the tile is clicked ===== */
+const facts=[
+  {big:"Antarctica", label:"the trip I still think about", title:"Antarctica",
+   caption:"As a massive animal lover, Antarctica took my breath away. Between the penguins, whales, and birds, the landscape felt otherworldly. Sea kayaking between icebergs and experiencing a true polar plunge are memories I'll never forget.", photos:["Ant1.jpg", "Ant4.jpg"]},
+  {big:"Bent Nail", label:"a souvenir from Habitat for Humanity", title:"Second chances, stronger together",
+   caption:"Every Habitat volunteer gets a bent nail pulled from the wood during their first home build as a reminder that as amateur builders, we learn from mistakes and from each other. Straight nails are better, but bent ones teach us that second chances make us stronger. Building together means building better.", photos:["Habitat1.jpg", "Habitat2.jpg"]},
+  {big:"Cakes", label:"from weddings to birthdays and beyond", title:"Custom cakes",
+   caption:"My brother's wedding cake started it all—a three-tier red velvet with cream cheese filling and hand-made sugar magnolias. Now I bake for birthdays and celebrations. Each cake is an excuse to get the details right and show up for people I care about.", photos:["Cake1.jpg", "Cake7.jpeg", "Cake6.jpeg"]},
+  {big:"Circus", label:"aerial silks, hoop, and Spanish rope", title:"Aerial arts acrobatics",
+   caption:"One of my first side quests was being part of a circus, specializing in aerial silks, aerial hoop, and Spanish rope. It taught me about trust, teamwork under pressure, and the joy of learning something totally new.", photos:["Circus2.jpg", "Circus4.jpg", "Circus1.jpg"] /* e.g. ["aerial1.jpg"] */}
+];
+function openFact(f){
+  mBody.replaceChildren(el('h3','',f.title), el('p','',f.caption));
+  if(f.photos.length){
+    const g=el('div','gallery');
+    f.photos.forEach(src=>{const i=el('img'); i.src=src; i.alt=f.title; i.loading='lazy'; g.appendChild(i);});
+    mBody.appendChild(g);
+  }
+  mImg.removeAttribute('src'); modal.showModal();
+}
+facts.forEach(f=>{
+  const b=el('button','fact');
+  b.append(el('strong','',f.big), document.createTextNode(f.label), el('small','',f.photos.length?'See photos':'Read more'));
+  b.addEventListener('click',()=>openFact(f));
+  document.getElementById('facts').appendChild(b);
+});                                    // line 394, ends the facts.forEach
+
+const portrait = document.querySelector('.portrait');
+if (matchMedia('(hover:none)').matches) portrait.addEventListener('click', () => portrait.classList.toggle('flipped'));
+
+document.getElementById('yr').textContent = new Date().getFullYear();   // your old line 395
+</script>
+</script>
+</body>
 </html>
