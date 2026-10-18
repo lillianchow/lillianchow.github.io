@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+body{margin:0;overflow-x:clip;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--coral);outline-offset:3px}
 .wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
@@ -151,15 +151,17 @@ footer{padding:2rem 0;text-align:center;font-size:.9rem}
 @media(max-width:46rem){
   html{scroll-padding-top:6.5rem}
   nav .wrap{flex-wrap:wrap;height:auto;padding-top:.6rem;padding-bottom:.3rem;row-gap:.2rem}
-  nav ul{width:100%;gap:1.1rem;overflow-x:auto;white-space:nowrap;padding:.2rem 0 .4rem;scrollbar-width:none}
-  nav ul::-webkit-scrollbar{display:none}
+  nav ul{width:100%;gap:.1rem 1.1rem;flex-wrap:wrap;padding:0 0 .4rem}
   nav a{display:inline-block;padding:.35rem 0}
   .navbtn{padding:.35rem 1rem}
   .hero{padding:2rem 0 3rem}
-  .hero .wrap,.about{grid-template-columns:1fr;gap:2rem}
+  .hero .wrap,.about{grid-template-columns:minmax(0,1fr);gap:2rem}
   .portrait{order:-1;width:10rem}
   .roles button,.btn{padding:.7rem 1.2rem}
   section{padding:3.5rem 0}
+  .fact{padding:.9rem}
+  .fact strong{font-size:clamp(1rem,4.6vw,1.6rem);overflow-wrap:anywhere}
+  .places li{max-width:100%;border-radius:1rem}
   .timeline{padding-left:1.25rem}
   .timeline summary{font-size:1.1rem}
   .card img{height:11rem}
